@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/CSS/global.css">
+    <link rel="stylesheet" type="text/css" href="../static/CSS/default.css">
+    <script src="../static"></script>
+    <title>Patient List</title>
+</head>
+<body>
+    <div class="patient-list-container">
+        <div class="patient-list-header">
+            <h1>Patient List</h1>
+            <form action="/" method="GET">
+                <label for="diagnosis">Diagnosis:</label>
+                <select id="diagnosis" name="diagnosis">
+                    <option value="all">All</option>
+                    <option value="pending">Pending</option>
+                </select>
+                <button type="submit">Filter</button>
+            </form>
+        </div>
+        {% if patients %}
+        <div class="patient-list">
+            {% for patient in patients %}
+            <div class="patient-data">
+                <h2>{{ patient['First Name'] }} {{ patient['Last Name'] }}</h2>
+                <p>Date of Birth: {{ patient['Date of Birth'] }}</p>
+                <p>Disease: {{ patient['Disease'] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

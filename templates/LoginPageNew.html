@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Login</title>
+    <link rel="stylesheet" href="../static/CSS/global.css">
+    <link rel="stylesheet" href="../static/CSS/login-page.css">
+    <script src="../static/medi.js"></script>
+</head>
+<body>
+    <header>
+        <h1>PROFILE</h1>
+    </h1>
+    </header>
+    <main class="login-container">
+        <form class="login-form" action="/login" method="post">
+            <div class="login-header">
+                <img src="../static/images/medical-logo.jpg" alt="Medical Logo" class="login-logo">
+                <h2 class="login-title">Welcome to MediTrak Login</h2>
+            </div>
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/a935ea901ea27dd748228c9ef9da89840c18e56bc52a2def5e8173b047b665c0?apiKey=522a8fe62f69476fb5ff414e14015e1f&" alt="Login illustration" class="login-image">
+            <div class="input-group">
+                <label for="username" class="username-label">Username</label>
+                <input type="text" id="username" class="username-input" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password" class="password-label">Password</label>
+                <input type="password" id="password" class="password-input" name="password" required>
+            </div>
+            {% if error %}
+                <div id="login-error" class="login-error">Incorrect username or password</div>
+            {% endif %}
+            <button type="submit" class="login-button">Login</button>
+            <div class="form-actions">
+                <button type="button" class="cancel-button" onclick="redirectPage('Home')">Cancel</button>
+                <div class="register-prompt">
+                    <span class="register-text">Don't have an account?</span>
+                    <a onclick="redirectPage('Register')" class="register-link">Register here</a>
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

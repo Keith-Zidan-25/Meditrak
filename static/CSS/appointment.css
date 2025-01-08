@@ -1,0 +1,68 @@
+body { 
+    font-family: 'Roboto', sans-serif; 
+    background-color: #f5f5f5;
+    margin: 0; 
+    padding: 0; 
+}
+.container { 
+    max-width: 600px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); 
+}
+h1, h2, h3 { 
+    color: #333333; 
+    text-align: center; 
+}
+.doctor-details p { 
+    margin: 5px 0; 
+} 
+.doctor-details strong { 
+    font-weight: bold; 
+}
+.appointment-scheduling label { 
+    display: block; 
+    margin-bottom: 10px; 
+    color: #555555; 
+}
+.appointment-scheduling input[type="date"], 
+.appointment-scheduling input[type="time"] { 
+    padding: 10px; 
+    border-radius: 5px; 
+    border: 1px solid #cccccc; 
+    width: calc(50% - 5px); 
+    margin-bottom: 20px; 
+    box-sizing: border-box; 
+    font-size: 16px; 
+
+} 
+.appointment-scheduling button[type="submit"] { 
+    background-color: var(--blue-button-color); 
+    color: #ffffff; 
+    padding: 12px 24px; 
+    border: none; 
+    border-radius: 35px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin-top: 20px; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+.appointment-scheduling button[type="submit"]:hover { 
+    background-color: #ffffff;
+    color: var(--blue-button-color);
+    border: 1px solid var(--blue-button-color); 
+}
+.fa-calendar-check {
+    margin-right: 10px; 
+}
+hr { 
+    margin-top: 30px; 
+    margin-bottom: 30px; 
+    border: 0; 
+    border-top: 1px solid #cccccc; 
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>User Profile</title>
+    <link rel="stylesheet" type="text/css" href="../static/CSS/global.css">
+    <link rel="stylesheet" type="text/css" href="../static/CSS/styles.css">
+    <style>
+        .header-container {
+            background-color: #458ff6; /* Different color for the header */
+            text-align: center;
+            padding: 20px 0; /* Add padding for spacing */
+        }
+        .header-title {
+            color: #fff; /* White text color for the header */
+            margin: 0; /* Remove default margin */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .user-details {
+            margin-bottom: 20px;
+        }
+        .user-details p {
+            margin: 5px 0;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            margin-bottom: 5px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #458ff6;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../static/medi.js"></script>
+</head> 
+<body> 
+    <header class="header-container">
+        <h1 class="header-title">User Profile</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                {% if user_type == 'patient'%}
+                <li><a href="/doctor_list">Book Appointment</a></li>
+                {%endif%}
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container"> 
+        <div class="user-details"> 
+            <h2>User Details</h2> 
+            <p><strong>Name:</strong> {{ user[0] }} {{ user[1] }}</p> 
+            <p><strong>Email:</strong> {{ user[2] }}</p>  
+        </div> 
+        {% if user_type == 'patient' %} 
+            <div class="section"> 
+                <h3>Medical Reports</h3> 
+                <ul> 
+                    {% if reports %} 
+                        {% for report in reports %}
+                            <li><a href="{{ url_for('view_report', report_id=report.id) }}">{{ report.name }}</a></li> 
+                        {% endfor %} 
+                    {% else %} 
+                        <li>No reports available</li> 
+                    {% endif %} 
+                </ul> 
+            </div> 
+            <div class="section"> 
+                <h3>Upcoming Appointments</h3> 
+                <ul> 
+                    {% if appointments %} 
+                        {% for appointment in appointments %} 
+                            <li>{{ appointment[1] }} at {{ appointment[2] }}</li> 
+                        {% endfor %} 
+                    {% else %} 
+                        <li>No appointments scheduled</li> 
+                    {% endif %} 
+                </ul>
+            </div> 
+        {% endif %} 
+        {% if user_type == 'doctor' %} 
+            <div class="section"> 
+                <h3>Patients List</h3> 
+                <ul>
+                    {% if patients %} 
+                        {% for patient in patients %} 
+                            <li>{{ patient[0] }} {{ patient[1] }}</li>
+                            <a href="/show_report">Show Report</a>
+                            <a href="/report">Upload Reports</a> 
+                        {% endfor %}
+                    {% else %}
+                        <li>No patients assigned</li> 
+                    {% endif %} 
+                </ul> 
+            </div> 
+            <div class="section"> 
+                <h3>Today's Appointments</h3>
+                <ul> 
+                    {% if appointments_today %} 
+                        {% for appointment in appointments_today %} 
+                            <li>{{ appointment.patient_name }} at {{ appointment.time }}</li> 
+                        {% endfor %} 
+                    {% else %} 
+                        <li>No appointments today</li> 
+                    {% endif %} 
+                </ul> 
+            </div> 
+        {% endif %} 
+    </div> 
+    <footer> 
+        <button onclick="window.location.href='/logout'">Logout</button> 
+        <button onclick="window.location.href='/change_password'">Change Password</button> 
+        <button onclick="window.location.href='/edit_profile'">Edit Profile</button> 
+    </footer> 
+</body> 
+</html>

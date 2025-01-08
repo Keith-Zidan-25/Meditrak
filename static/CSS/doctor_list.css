@@ -1,0 +1,109 @@
+/* doctor_list.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+.doctor-list-container {
+    background-color: #d5e5fc; /* Light blue container background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    max-width: 800px; /* Set maximum width to control layout */
+}
+.doctor-list-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.doctor-list-header h1 {
+    color: #458ff6; /* Primary blue color for heading */
+}
+.filter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.filter-options {
+    display: flex;
+}
+.filter-option{
+    margin: 0 0 20px;
+}
+.filter-option select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.filter-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #458ff6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.filter-btn:hover {
+    background-color: #3c7bd9;
+}
+.doctor-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+    justify-content: space-between;
+}
+.doctor-card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-bottom: 20px;
+}
+.text-div-doctor-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.doctor-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.profile-pic-doctor {
+    width: 225px;
+    height: 225px;
+    margin-right: 10px;
+    border: 1px solid #458ff6;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.doctor-card h2 {
+    margin: 0;
+    color: #333;
+}
+.specialization, .experience {
+    color: #666; 
+}
+.book-appointment-btn {
+    padding: 8px 16px;
+    border-radius: 5px;
+    background-color: #458ff6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.book-appointment-btn:hover {
+    background-color: #3c7bd9; /* Darker shade of blue on hover */
+}
+.not-found-message {
+    color: #666; /* Medium blue color for message */
+    text-align: center;
+    width: 100%;
+}

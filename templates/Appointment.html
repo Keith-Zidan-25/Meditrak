@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-nMr7XBUFOBq7GAZKONw8eX2fut+2tv6uoDgY8mGJ8N4WIf+d0ZBrNaJhDdYsCOVDIa1bzUc0jykT2CA4j6ynlA==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="../static/CSS/global.css">
+    <link rel="stylesheet" type="text/css" href="../static/CSS/appointment.css">
+    <script>
+        window.onload = function() {
+            var appointmentResult = "{{ message }}";
+            if (appointmentResult && appointmentResult !== 'None') {
+                alert(appointmentResult);
+            }
+        }
+    </script>
+</head>
+    <body>
+        <div class="container"> 
+            <h1>Appointment Details</h1> 
+            <div class="doctor-details"> 
+                
+                <h2>Doctor Information</h2> 
+                <p><strong>Name:</strong> {{ doctor[1] }} {{ doctor[2] }}</p> 
+                <p><strong>Specialization:</strong> {{ doctor[3] }}</p> 
+                <p><strong>Experience:</strong> {{ doctor[4] }}</p> 
+                
+                <h3>Address</h3> 
+                <p><strong>Hospital/Clinic:</strong> {{ doctor[5] }}</p> 
+                <p><strong>Street:</strong> {{ doctor[6] }}</p> 
+                <p><strong>Area:</strong> {{ doctor[7] }}</p> 
+                <p><strong>Contact No:</strong> {{ doctor[8] }}</p>
+            </div> 
+            <hr> 
+            <div class="appointment-scheduling"> 
+                <h2>Schedule an Appointment</h2>     
+                <form action="/schedule_appointment" method="POST"> 
+                    <label for="date">Date:</label> 
+                    <input type="date" id="date" name="date" required> 
+                    
+                    <label for="time">Time:</label> 
+                    <input type="time" id="time" name="time" required> 
+                    
+                    <button type="submit"><i class="fas fa-calendar-check"></i> Schedule Appointment</button> 
+                </form> 
+            </div> 
+        </div> 
+    </body> 
+</html> 

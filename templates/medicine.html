@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="styleSheet" href="../static/CSS/doctor_list.css">
+    <script src="../static/medi.js"></script>
+    <title>Medicine Details</title>
+</head>
+<body>
+    <div class="doctor-list-container">
+        <div class="doctor-list" id="doctorList"> 
+            {% for medicine in medicines %} 
+                <div class="doctor-card">
+                    <div class="img-container">
+                        <img src="../static/images/medicine.svg"  class="profile-pic-doctor">
+                    </div>
+                    <div class="text-div-doctor-card">
+                        <h2>{{ medicine[0] }} </h2> 
+                        <p class="specialization">Average Price: {{ medicine[1] }}</p> 
+                        <p class="experience">Type: {{ medicine[2] }}</p>
+                        <button class="book-appointment-btn" onclick="redirectPriceComparison('{{ medicine[0] }}' )">Compare Price</button>
+                    </div> 
+                </div>
+            {% endfor %} 
+            <p id="notFoundMessage" class="not-found-message" style="display: none;">No Medicines found matching the selected criteria.</p> 
+        </div>
+    </div>
+</body>
+</html>

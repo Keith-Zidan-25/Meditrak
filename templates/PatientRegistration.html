@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="Stylesheet" type="text/css" href="../static/CSS/global.css">
+        <link rel="Stylesheet" type="text/css" href="../static/CSS/default.css">
+        <script src="../static/medi.js"></script>
+    </head>
+    <title>registration</title>
+    <body>
+        <form action="/register_patient" method="post">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/3c01ee420af001b0d0d5f13258745692c5786bf47cd67aeae420323590267b62?apiKey=a18869c944d74acb87a61d36ad90b9e2&" class="img" style="position: absolute;"/>
+            <div class="imgcontainer">
+                <img src="../static/images/Avatar.png" class="Avatar" alt="avatar">
+            </div>
+            <div class="container">
+                <label for="usename"><b>Firstname:</b></label>
+                <input type="text" placeholder="Enter firstname" name="firstname" required>
+
+
+                <label for="usename"><b>Lastname:</b></label>
+                <input type="text" placeholder="Enter lastname" name="lastname" required>
+
+                <label for="eml"><b>E-mail:</b></label>
+                <input type="email" placeholder="Enter E-mail" name="email" required>
+                {% if email_exists %}
+                    <span class="error-message">Email already in use. Please use a different email.</span>
+                {% endif %}
+                <label for="psw"><b>Password:</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                
+                <label for="dob"><b>Date-Of-Birth:</b></label>
+                <input type="date" placeholder="yyyy/mm/dd" name="DOB" required>
+                
+                <button type="submit" value="Register">Register</button>
+            </div>
+            <div class="container">
+                <button type="button" class="cancelbtn" onclick="redirectPage('Home')">Cancel</button>
+                <p style="float: right;">Already Have a Account?<a onclick="redirectPage('Profile')">Login</a></p>
+            </div>
+        </form>
+    </body>
+</html>

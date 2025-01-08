@@ -1,0 +1,17 @@
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+:root{
+  --large-font-colour: #ffffff;
+  --small-font-colour: ;
+  --bg-color-div: #7d7987;
+  --black-div-color: #000;
+  --blue-button-color: #458ff6;
+}

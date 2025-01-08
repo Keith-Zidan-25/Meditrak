@@ -1,0 +1,100 @@
+/* login-page.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f5fc; /* Light blue background */
+    background-image: url('../images/loginpagebg.jpg');
+}
+header {
+    background-color: #458ff6;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    background-color: #d5e5fc; /* Light blue container background */
+    
+}
+
+.login-header {
+    margin-bottom: 20px;
+}
+
+.login-logo {
+    width: 80px;
+}
+
+.login-title {
+    font-size: 24px;
+    margin-top: 0;
+    color: #333; /* Dark blue text color */
+}
+
+.login-image {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.username-label, .password-label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #333; /* Dark blue text color */
+}
+
+.username-input, .password-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px;
+}
+
+.login-button, .cancel-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #458ff6; /* Primary accent color */
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover, .cancel-button:hover {
+    background-color: #3c7bd9; /* Darker shade of blue on hover */
+}
+
+.login-error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.form-actions {
+    margin-top: 20px;
+}
+
+.register-prompt {
+    font-size: 14px;
+}
+
+.register-link {
+    color: #458ff6; /* Primary accent color */
+    cursor: pointer;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}

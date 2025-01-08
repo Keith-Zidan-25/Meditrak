@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Doctor List</title> 
+    <link rel="stylesheet" type="text/css" href="../static/CSS/global.css"> 
+    <link rel="stylesheet" type="text/css" href="../static/CSS/doctor_list.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="../static/medi.js"></script> 
+</head> 
+<body style="background-color: #eaf2f8;">
+    <div class="doctor-list-container"> 
+        <div class="doctor-list-header"> 
+            <h1>Find Your Specialist</h1> 
+            <form action="/doctor_list" method="GET" class="filter-form"> 
+                <div class="filter-options"> 
+                    <div class="filter-option"> 
+                        <label for="specialization">Specialization:</label> 
+                        <select id="specialization" name="specialization"> 
+                            <option value="all">All</option>
+                            <option value="cardiologist">Cardiologist</option> 
+                            <option value="neurologist">Neurologist</option>
+                            <option value="General Practitioner">General Practitioner</option>
+                            <option value="Pediatrician">Pediatrician</option>
+                        </select> 
+                    </div> 
+                    <div class="filter-option"> 
+                        <label for="experience"> Experience:</label> 
+                        <select id="experience" name="experience"> 
+                            <option value="all">All</option> 
+                            <option value="0-5">0-5</option> 
+                            <option value="5-10">5-10</option> 
+                        </select> 
+                    </div>
+                    <button type="button" class="filter-btn" onclick="applyFilter()">Filter</button> 
+                </div> 
+            </form> 
+        </div> 
+        <div class="doctor-list" id="doctorList"> 
+            {% for doctor in doctors %} 
+            <form action="/book_appointment" method="post">
+                <div class="doctor-card">
+                    <div class="img-container">
+                        <img src="{{ url_for('profile_image', doctor_id = doctor[4]) }}"  class="profile-pic-doctor">
+                    </div>
+                    <div class="text-div-doctor-card">
+                        <h2>{{ doctor[0] }} {{ doctor[1] }}</h2> 
+                        <p class="specialization">Specialization: {{ doctor[2] }}</p> 
+                        <p class="experience">Experience: {{ doctor[3] }}</p> 
+                        <button type="submit" name="username" value="{{ doctor }}" class="book-appointment-btn">Book Appointment</button>
+                    </div> 
+                </div>
+            </form>
+            {% endfor %} 
+            <p id="notFoundMessage" class="not-found-message" style="display: none;">No doctors found matching the selected criteria.</p> 
+        </div> 
+    </div> 
+</body> 
+</html>
